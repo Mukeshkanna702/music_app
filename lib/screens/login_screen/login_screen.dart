@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/screens/login_screen/login_signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -85,7 +86,9 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                   color: Colors.white,
                   child: Center(
                     child: Image.asset(
-                      'assets/images/sony.png',
+                      isDark
+                          ? 'assets/images/sony_text_white.png'
+                          : 'assets/images/sony.png',
                       width: 100,
                     ),
                   ),
@@ -119,8 +122,10 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                     _logoPositionAnimation.value.dy),
                 child: Transform.scale(
                   scale: _logoScaleAnimation.value,
-                  child: Image.asset(
-                    'assets/images/sony.png',
+                  child:Image.asset(
+                    isDark
+                        ? 'assets/images/sony_text_white.png'
+                        : 'assets/images/sony.png',
                     width: 160,
                   ),
                 ),
@@ -137,39 +142,50 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                   if (_showButton)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 100),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          // First show the text
-                          AnimatedOpacity(
-                            opacity: _showButton ? 1.0 : 0.0,
-                            duration: const Duration(milliseconds: 500),
-                            child: const Text(
-                              "Let's start",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Color(0xFF7A0B0B),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginSignupScreen(),
+                            ),
+                          );
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // First show the text
+                            AnimatedOpacity(
+                              opacity: _showButton ? 1.0 : 0.0,
+                              duration: const Duration(milliseconds: 500),
+                              child: const Text(
+                                "Let's start",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xFF7A0B0B),
+                                ),
                               ),
                             ),
-                          ),
-                          // Then show the icon with a small delay
-                          AnimatedOpacity(
-                            opacity: _showButton ? 1.0 : 0.0,
-                            duration: const Duration(milliseconds: 500),
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 8),
-                              child: Icon(
-                                Icons.play_arrow,
-                                color: Color(0xFF7A0B0B),
+                            // Then show the icon with a small delay
+                            AnimatedOpacity(
+                              opacity: _showButton ? 1.0 : 0.0,
+                              duration: const Duration(milliseconds: 500),
+                              child: const Padding(
+                                padding: EdgeInsets.only(left: 8),
+                                child: Icon(
+                                  Icons.play_arrow,
+                                  color: Color(0xFF7A0B0B),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                 ],
               ),
-            ),        ],
+            ),
+        ],
       ),
     );
   }

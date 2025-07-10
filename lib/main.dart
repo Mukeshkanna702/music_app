@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_app/screens/login_screen.dart';
+import 'package:music_app/screens/login_screen/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: ThemeData(
         brightness: Brightness.light,
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.red,
         scaffoldBackgroundColor: Colors.white,
         inputDecorationTheme: const InputDecorationTheme(
           filled: true,
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.red,
         scaffoldBackgroundColor: const Color(0xFF121212),
         inputDecorationTheme: const InputDecorationTheme(
           filled: true,
@@ -70,8 +70,10 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/sony.png',
-              width: 150,
+              isDark
+                  ? 'assets/images/sony_text_white.png'
+                  : 'assets/images/sony.png',
+              width: 150,  // Different widths based on the image
             ),
             const SizedBox(height: 20),
             Text(
