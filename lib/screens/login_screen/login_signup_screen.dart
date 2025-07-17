@@ -93,7 +93,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             : 'assets/images/sony_white.png',
                         height: 80,
                       ),
-                      SizedBox(height: screenHeight * 0.1),
+                      SizedBox(height: screenHeight * 0.05),
 
                       // Login or Signup Form
                       Card(
@@ -265,6 +265,38 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               ),
             ],
           ),
+          const SizedBox(height: 20),
+
+// Continue with Google Button
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: () {
+                // Implement Google sign-in logic here
+                print("Continue with Google pressed");
+              },
+              icon: Image.asset(
+                'assets/images/google.png',
+                height: 24,
+              ),
+              label: Text(
+                'Continue with Google',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: isDarkMode? Colors.white : Colors.black,
+                ),
+              ),
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(color: Colors.grey),
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                backgroundColor: isDarkMode? Colors.black : Colors.white,
+              ),
+            ),
+          ),
+
         ],
       ),
     );
@@ -440,6 +472,37 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                 ),
               ),
             ],
+          ),
+          const SizedBox(height: 20),
+
+// Continue with Google Button
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: () {
+                // Implement Google sign-in logic here
+                print("Continue with Google pressed");
+              },
+              icon: Image.asset(
+                'assets/images/google.png',
+                height: 24,
+              ),
+              label: Text(
+                'Continue with Google',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: isDarkMode? Colors.white : Colors.black,
+                ),
+              ),
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(color: Colors.grey),
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                backgroundColor: isDarkMode? Colors.black : Colors.white,
+              ),
+            ),
           ),
         ],
       ),
